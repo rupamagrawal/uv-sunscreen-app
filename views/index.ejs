@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UV Sunscreen Advisor</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="bg-light">
+
+  <div class="container mt-5">
+    <div class="card shadow-lg p-4">
+      <h1 class="text-center mb-4">☀️ UV Sunscreen Advisor</h1>
+
+      <form action="/check" method="POST" class="row g-3">
+        <div class="col-md-6">
+          <input type="text" name="lat" class="form-control" placeholder="Enter Latitude" required>
+        </div>
+        <div class="col-md-6">
+          <input type="text" name="lon" class="form-control" placeholder="Enter Longitude" required>
+        </div>
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-warning px-4">Check UV</button>
+        </div>
+      </form>
+
+      <div class="mt-4 text-center">
+        <% if (location) { %>
+          <h4 class="text-muted">Location: <%= location %></h4>
+        <% } %>
+
+        <% if (uv) { %>
+          <h2 class="text-success">UV Index: <%= uv.toFixed(2) %></h2>
+          <p class="fs-5"><%= message %></p>
+        <% } %>
+
+        <% if (error) { %>
+          <div class="alert alert-danger mt-3"><%= error %></div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

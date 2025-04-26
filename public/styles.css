@@ -1,0 +1,13 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #fdf6ec;
+}
+
+.card {
+  border-radius: 16px;
+  background: white;
+}
+
+input::placeholder {
+  font-style: italic;
+}
